@@ -18,7 +18,7 @@ PGraphics screen;
 
 void setup() {
  size(1000, 600);
- screen = createGraphics(1000, 600);
+ screen = createGraphics(1000, 800);
  screen.beginDraw();
  screen.background(255);
  screen.endDraw();
@@ -30,7 +30,7 @@ void draw() {
  stroke(0);
  strokeWeight(2);
  
- translate(500, 50);
+ translate(500, 100);
  
  x2_prev = x2;
  y2_prev = y2;
@@ -55,9 +55,9 @@ void draw() {
  ang2 += m2_velocity;
  
  screen.beginDraw();
- screen.translate(500, 50);
+ screen.translate(500, 100);
  screen.stroke(0);
- screen.strokeWeight(0.5);
+ screen.strokeWeight(1);
  if (x2_prev != 0) {
    screen.line(x2_prev, y2_prev, x2, y2);
    screen.endDraw();
