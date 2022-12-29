@@ -41,14 +41,19 @@ void draw() {
  line(-(x-w)/2, l+1.5*x, (w+x)/2, l+1.5*x);
  fill(255, 0, 0);
  rect(1, y, w-2, l-2, 10);
- text(("Volume = "+str(Vchange/1000)), -5*w, l+x/3);
+ text(("Volume = "+str(Vchange/1000)+" cm^3"), -5*w, l+x/2);
  fill(0, 0, 255);
- text(("Pressure = "+str(P)), -5*w, l+x);
+ text(("Pressure = "+str(P)+" Pa"), -5*w, l+x);
+ fill(0, 255, 0);
+ text("Frequency = "+str(1/(T/60))+" Hz", -5*w, l+3*x/2);
 
  textSize(25);
+ fill(255, 0, 0);
  line(300, l, 300, l+300);
- text("Pressure/Pa", 300, l-30);
+ text("Pressure", 300, l-30);
+ text(str(101325)+" Pa", 190, l+160);
  line(300, l+150, 800, l+150);
+ text("Time", 800, l+180);
  
  
  y_prev = y;
@@ -61,14 +66,14 @@ void draw() {
 
  if (frameCount%480 == 0) {
    screen.beginDraw();
-   screen.background(255, 255, 255);  // transparent white
+   screen.background(255, 255, 255);
    screen.endDraw();
  } else {
    screen.beginDraw();
    screen.translate(500, 50);
    screen.stroke(0);
    screen.strokeWeight(2);
-   screen.line(300+frameCount%480-1, l+150+y_prev*4, 300+frameCount%480, l+150+y*4);
+   screen.line(300+frameCount%480-1, l+150-y_prev*4, 300+frameCount%480, l+150-y*4);
  }
  screen.endDraw();
  }
